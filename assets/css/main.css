@@ -3441,8 +3441,17 @@ input, select, textarea {
 		padding-top: 0;
 	}
 
-	body.landing #header {
+	body.landing #header.scrolled {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		background: #1f1f1f;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+		z-index: 10000;
+		transition: background 0.3s ease, box-shadow 0.3s ease;
 	}
+
 
 /* Banner */
 
