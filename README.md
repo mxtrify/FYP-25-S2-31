@@ -5,11 +5,9 @@ MobControl features an intuitive Android app for layout design and input deliver
 
 ---
 
-## 📺 Demo
+## 📺 Project Trailer
 
 [![MobControl Trailer](https://img.youtube.com/vi/nHFwJYlXRQY/0.jpg)](https://youtu.be/nHFwJYlXRQY)
-
-Repository: [FYP-25-S2-31](https://github.com/mxtrify/FYP-25-S2-31)
 
 ---
 
@@ -49,13 +47,3 @@ Built by a multidisciplinary team of developers and designers:
 ## 📜 License
 
 This project is licensed under the **MIT License**, granting open usage and modification rights.
-
----
-
-## 🔗 Quick Links
-
-| Section    | Link |
-|------------|------|
-| Video Demo | [MobControl Trailer](https://youtu.be/nHFwJYlXRQY) |
-| Repository | [GitHub · FYP-25-S2-31](https://github.com/mxtrify/FYP-25-S2-31) |
-| License    | MIT License |
