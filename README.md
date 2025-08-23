@@ -30,9 +30,7 @@ MobControl features an intuitive Android app for layout design and input deliver
 
 ---
 
-## 👥 Contributing & Contact
-
-Contributions are welcome — feel free to fork, propose changes, or open an issue.
+## 👥 Contributors
 
 Built by a multidisciplinary team of developers and designers:
 
