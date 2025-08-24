@@ -4270,4 +4270,39 @@ input, select, textarea {
 	/* Slightly more breathing room above/below the grid */
 	#main .downloads { padding-top: .5rem; }
 	.downloads .latest-release { margin-top: 2rem; }
+	
+	/* Responsive button groups inside download cards */
+	.downloads .button-group {
+	  display: flex;
+	  flex-direction: column;   /* default: stack vertically on small screens */
+	  gap: .75rem;
+	}
+
+	/* ≥ 600px: small tablets */
+	@media (min-width: 600px) {
+	  .downloads .button-group {
+		flex-direction: row;      /* side by side */
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 1rem;
+	  }
+	  .downloads .button-group .button {
+		flex: 1 1 auto;           /* make buttons equal width */
+		min-width: 11rem;
+	  }
+	}
+
+	/* ≥ 900px: laptops and above */
+	@media (min-width: 900px) {
+	  .downloads .button-group .button {
+		min-width: 13rem;         /* wider buttons on larger screens */
+	  }
+	}
+
+	/* ≥ 1600px: ultrawide */
+	@media (min-width: 1600px) {
+	  .downloads .button-group .button {
+		min-width: 15rem;         /* give breathing room on big monitors */
+	  }
+	}
 
