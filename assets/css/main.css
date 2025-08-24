@@ -4130,48 +4130,46 @@ input, select, textarea {
 		border: 0;
 	}
 	
-	/* ==== Downloads cleanup & overrides (safe to append) ==== */
+	/* ==== Downloads Section Styles ==== */
 
-	/* 1) Fix the hover shadow alpha (typo .35) */
-	.downloads .download-card:hover {
-	  box-shadow: 0 10px 24px rgba(0,0,0,.35) !important;
+	/* Section alignment + intro text */
+	#main .downloads { 
+	  text-align: center; 
+	}
+	#main .downloads .lede {
+	  max-width: 42rem;
+	  margin: 0 auto 2rem;
+	  opacity: .85;
 	}
 
-	/* 2) Remove the narrow cap that made the grid feel squeezed */
-	.downloads .download-grid {
-	  max-width: none !important;
-	  margin-left: auto;
-	  margin-right: auto;
-	  padding-left: 1rem;
-	  padding-right: 1rem;
-	}
-
-	/* 3) Single, clear responsive grid (mobile → tablet → laptop → desktop → ultrawide) */
+	/* Grid holding the download cards */
 	.downloads .download-grid {
 	  display: grid;
 	  grid-template-columns: 1fr;     /* phones: 1 column */
 	  gap: 1.25rem;
+	  margin: 0 auto;
+	  padding: 0 1rem;
 	}
-	@media (min-width: 600px) {        /* small tablets */
+	@media (min-width: 600px) {       /* small tablets */
 	  .downloads .download-grid {
 		grid-template-columns: repeat(2, 1fr);
 		max-width: 92vw;
 		gap: 1.5rem;
 	  }
 	}
-	@media (min-width: 900px) {        /* laptops */
+	@media (min-width: 900px) {       /* laptops */
 	  .downloads .download-grid {
 		max-width: 1100px;
 		gap: 2rem;
 	  }
 	}
-	@media (min-width: 1280px) {       /* desktops */
+	@media (min-width: 1280px) {      /* desktops */
 	  .downloads .download-grid {
 		max-width: 1280px;
 		gap: 2.25rem;
 	  }
 	}
-	@media (min-width: 1600px) {       /* ultrawide */
+	@media (min-width: 1600px) {      /* ultrawide */
 	  .downloads .download-grid {
 		max-width: 1440px;
 		gap: 2.5rem;
@@ -4179,7 +4177,58 @@ input, select, textarea {
 	  .downloads .download-card { padding: 2rem; }
 	}
 
-	/* 4) One definitive rule so single-file buttons (APK) match desktop buttons */
+	/* Download cards */
+	.downloads .download-card {
+	  width: 100%;
+	  background: rgba(255,255,255,0.03);
+	  border: 1px solid rgba(255,255,255,0.08);
+	  border-radius: 14px;
+	  padding: 1.5rem;
+	  text-align: left;
+	  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+	}
+	.downloads .download-card:hover {
+	  transform: translateY(-2px);
+	  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+	  border-color: rgba(255,255,255,0.16);
+	}
+	.downloads .download-card header {
+	  display: flex;
+	  align-items: center;
+	  gap: .75rem;
+	  margin-bottom: .25rem;
+	}
+	.downloads .download-card h3 { margin: 0; white-space: nowrap; }
+	.downloads .download-card .muted { opacity: .7; margin: 0; }
+	.downloads .download-card .tiny { font-size: .85rem; margin-top: .75rem; }
+
+	/* Font Awesome icons in card headers */
+	.downloads .download-card header .icon {
+	  font-size: 1.4em;
+	  color: rgba(255,255,255,0.85);
+	  flex: 0 0 auto;
+	}
+
+	/* Metadata list (Version, Type, etc.) */
+	.downloads .download-card .meta {
+	  list-style: none;
+	  margin: .25rem 0 1rem;
+	  padding: 0;
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(0,1fr));
+	  gap: .5rem 1rem;
+	  opacity: .85;
+	}
+	@media (max-width: 480px) {
+	  .downloads .download-card .meta { grid-template-columns: 1fr; }
+	}
+
+	/* Buttons */
+	.downloads .button.icon-right { 
+	  display: inline-flex; 
+	  align-items: center; 
+	  gap: .5rem; 
+	}
 	.downloads .download-card .button.primary {
 	  display: inline-flex;
 	  width: 100%;
@@ -4187,19 +4236,60 @@ input, select, textarea {
 	  padding-top: .9rem;
 	  padding-bottom: .9rem;
 	}
+	.downloads .button.small { 
+	  padding: .5rem .9rem; 
+	  font-size: .9rem; 
+	}
 
-	/* 5) Consistent button-group behavior (drop older 480px version) */
-	.downloads .button-group { display: flex; flex-direction: column; gap: .75rem; }
+	/* Button groups (EXE + MSI) */
+	.downloads .button-group {
+	  display: flex;
+	  flex-direction: column;
+	  gap: .75rem;
+	}
 	@media (min-width: 600px) {
-	  .downloads .button-group { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
-	  .downloads .button-group .button { flex: 1 1 auto; min-width: 13rem; }
+	  .downloads .button-group {
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		gap: 1rem;
+	  }
+	  .downloads .button-group .button {
+		flex: 1 1 auto;
+		min-width: 13rem;
+	  }
 	}
 	@media (min-width: 1600px) {
 	  .downloads .button-group .button { min-width: 15rem; }
 	}
 
-	/* 6) Prevent Desktop Application header from wrapping on desktop sizes */
-	@media (min-width: 900px) {
-	  .downloads .download-card header { flex-wrap: nowrap; }
-	  .downloads .download-card h3 { white-space: nowrap; }
+	/* Aux links (FAQ, Docs) */
+	.downloads .aux {
+	  margin-top: 1.5rem;
+	  display: flex;
+	  gap: .75rem;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	}
+
+	/* Global "View Latest Release" block */
+	.downloads .latest-release {
+	  margin-top: 2.5rem;
+	  text-align: center;
+	}
+	.downloads .latest-release p {
+	  margin-bottom: .75rem;
+	  opacity: .85;
+	}
+	.downloads .latest-release .button {
+	  font-size: 1.05rem;
+	  padding: .75rem 1.25rem;
+	  min-width: 18rem;
+	}
+
+	/* Stronger focus visibility for accessibility */
+	.downloads a.button:focus-visible, 
+	.downloads .download-card:focus-within {
+	  outline: 2px solid #ff4477;
+	  outline-offset: 3px;
 	}
