@@ -4259,3 +4259,15 @@ input, select, textarea {
 	  outline: 2px solid #ff4477;
 	  outline-offset: 3px;
 	}
+	
+	/* Optional micro-polish */
+	.downloads .download-grid { max-width: 980px; margin: 0 auto; }
+	.downloads .download-card { background: rgba(255,255,255,0.04); }
+	.downloads .download-card .muted { opacity: .8; }
+	.downloads .button-group .button { min-width: 14rem; justify-content: center; }
+	.downloads .latest-release .button { min-width: 18rem; }
+
+	/* Slightly more breathing room above/below the grid */
+	#main .downloads { padding-top: .5rem; }
+	.downloads .latest-release { margin-top: 2rem; }
+
