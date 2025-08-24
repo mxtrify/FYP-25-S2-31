@@ -4129,3 +4129,133 @@ input, select, textarea {
 		height: 100%;
 		border: 0;
 	}
+	
+	/* ===========================
+	   Downloads page enhancements
+	   Scoped under .downloads
+	   =========================== */
+
+	/* Section alignment + intro text */
+	#main .downloads { 
+	  text-align: center; 
+	}
+	#main .downloads .lede {
+	  max-width: 42rem;
+	  margin: 0 auto 2rem;
+	  opacity: .85;
+	}
+
+	/* Grid holding the download cards */
+	.downloads .download-grid {
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(260px, 1fr));
+	  gap: 1.5rem;
+	  align-items: stretch;
+	  justify-items: center;
+	}
+	@media (max-width: 800px) {
+	  .downloads .download-grid { grid-template-columns: 1fr; }
+	}
+
+	/* Download cards */
+	.downloads .download-card {
+	  width: 100%;
+	  background: rgba(255,255,255,0.03);
+	  border: 1px solid rgba(255,255,255,0.08);
+	  border-radius: 14px;
+	  padding: 1.5rem;
+	  text-align: left;
+	  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+	}
+	.downloads .download-card:hover {
+	  transform: translateY(-2px);
+	  box-shadow: 0 10px 24px rgba(0,0,0,.35);
+	  border-color: rgba(255,255,255,0.16);
+	}
+	.downloads .download-card header {
+	  display: flex;
+	  align-items: center;
+	  gap: .9rem;
+	  margin-bottom: .25rem;
+	}
+	.downloads .download-card h3 { margin: 0; }
+	.downloads .download-card .muted { opacity: .7; margin: 0; }
+	.downloads .download-card .tiny { font-size: .85rem; margin-top: .75rem; }
+
+	/* Simple inline SVG icon used in card headers */
+	.downloads .download-card .icon {
+	  width: 28px;
+	  height: 28px;
+	  flex: 0 0 28px;
+	  fill: currentColor;
+	  opacity: .9;
+	}
+
+	/* Two-column metadata inside cards (Version, Type, etc.) */
+	.downloads .download-card .meta {
+	  list-style: none;
+	  margin: .25rem 0 1rem;
+	  padding: 0;
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(0,1fr));
+	  gap: .5rem 1rem;
+	  opacity: .85;
+	}
+	@media (max-width: 480px) {
+	  .downloads .download-card .meta { grid-template-columns: 1fr; }
+	}
+
+	/* Button groups (EXE/MSI side-by-side, stack on small screens) */
+	.downloads .button-group {
+	  display: flex;
+	  flex-direction: column;
+	  gap: .75rem;
+	}
+	@media (min-width: 480px) {
+	  .downloads .button-group {
+		flex-direction: row;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	  }
+	}
+
+	/* Scoped button tweaks */
+	.downloads .button.icon-right { 
+	  display: inline-flex; 
+	  align-items: center; 
+	  gap: .5rem; 
+	}
+	.downloads .button.small { 
+	  padding: .5rem .9rem; 
+	  font-size: .9rem; 
+	}
+
+	/* Secondary links row under grid (FAQ / Docs) */
+	.downloads .aux {
+	  margin-top: 1.5rem;
+	  display: flex;
+	  gap: .75rem;
+	  justify-content: center;
+	  flex-wrap: wrap;
+	}
+
+	/* Global "View Latest Release" block */
+	.downloads .latest-release {
+	  margin-top: 2.5rem;
+	  text-align: center;
+	}
+	.downloads .latest-release p {
+	  margin-bottom: .75rem;
+	  opacity: .85;
+	}
+	.downloads .latest-release .button {
+	  font-size: 1.05rem;
+	  padding: .75rem 1.25rem;
+	}
+
+	/* Stronger focus visibility for accessibility */
+	.downloads a.button:focus-visible, 
+	.downloads .download-card:focus-within {
+	  outline: 2px solid #ff4477;
+	  outline-offset: 3px;
+	}
